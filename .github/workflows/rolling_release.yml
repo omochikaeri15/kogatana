@@ -32,7 +32,7 @@ jobs:
     needs: prepare
     runs-on: windows-latest
     env:
-      ASSET: neko-windows-x64.zip
+      ASSET: kogatana-windows-x64.zip
     steps:
       - uses: actions/checkout@v5
 
@@ -69,7 +69,7 @@ jobs:
           - flavor: arm
             runner: ubuntu-22.04-arm
     env:
-      ASSET: neko-linux-${{ matrix.flavor }}.zip
+      ASSET: kogatana-linux-${{ matrix.flavor }}.zip
     steps:
       - uses: actions/checkout@v5
 
@@ -106,7 +106,7 @@ jobs:
           - flavor: x64
             target: x86_64-apple-darwin
     env:
-      ASSET: neko-mac-${{ matrix.flavor }}.zip
+      ASSET: kogatana-mac-${{ matrix.flavor }}.zip
     steps:
       - uses: actions/checkout@v5
 

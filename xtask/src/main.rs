@@ -87,7 +87,7 @@ fn stamp_version(old: &str, new: &str) {
 }
 
 fn ship() {
-    println!("Starting Neko-Ware Release...");
+    println!("Starting Kogatana Release...");
 
     println!("> Checking out {RELEASE_BRANCH} and pulling latest changes...");
     run_git(&["checkout", RELEASE_BRANCH]);

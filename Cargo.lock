@@ -1183,6 +1183,94 @@ dependencies = [
 ]
 
 [[package]]
+name = "kg-apk"
+version = "26.10.0"
+dependencies = [
+ "aes",
+ "anyhow",
+ "base64",
+ "byteorder",
+ "cbc",
+ "cipher",
+ "clap",
+ "colored",
+ "ecb",
+ "hex",
+ "image",
+ "md5",
+ "rand_core 0.6.4",
+ "rasn",
+ "rasn-pkix",
+ "rayon",
+ "resand",
+ "rsa",
+ "serde",
+ "serde_json",
+ "sha2 0.10.9",
+ "thiserror",
+ "tracing",
+ "tracing-subscriber",
+ "zip 8.6.0",
+]
+
+[[package]]
+name = "kg-arc"
+version = "26.10.0"
+dependencies = [
+ "aes",
+ "clap",
+ "colored",
+ "ctr",
+ "flate2",
+ "image",
+ "rayon",
+ "texture2ddecoder",
+ "tracing",
+ "tracing-subscriber",
+ "xts-mode",
+]
+
+[[package]]
+name = "kg-cloud"
+version = "26.10.0"
+dependencies = [
+ "base64",
+ "byteorder",
+ "clap",
+ "colored",
+ "futures",
+ "reqwest",
+ "rsa",
+ "serde",
+ "serde_json",
+ "sha1 0.10.6",
+ "time",
+ "tokio",
+ "tracing",
+ "tracing-subscriber",
+ "zip 9.0.0-pre2",
+]
+
+[[package]]
+name = "kg-pack"
+version = "26.10.0"
+dependencies = [
+ "aes",
+ "cbc",
+ "cipher",
+ "clap",
+ "colored",
+ "ecb",
+ "hex",
+ "md5",
+ "serde",
+ "serde_json",
+ "tracing",
+ "tracing-subscriber",
+ "zip 8.6.0",
+]
+
+[[package]]
 name = "lazy_static"
 version = "1.5.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1301,87 +1389,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "neko-apk"
-version = "26.10.0"
-dependencies = [
- "anyhow",
- "base64",
- "byteorder",
- "clap",
- "colored",
- "hex",
- "image",
- "md5",
- "nyanko",
- "rand_core 0.6.4",
- "rasn",
- "rasn-pkix",
- "rayon",
- "resand",
- "rsa",
- "serde",
- "serde_json",
- "sha2 0.10.9",
- "thiserror",
- "tracing",
- "tracing-subscriber",
- "zip 8.6.0",
-]
-
-[[package]]
-name = "neko-arc"
-version = "26.10.0"
-dependencies = [
- "aes",
- "clap",
- "colored",
- "ctr",
- "flate2",
- "image",
- "rayon",
- "texture2ddecoder",
- "tracing",
- "tracing-subscriber",
- "xts-mode",
-]
-
-[[package]]
-name = "neko-cloud"
-version = "26.10.0"
-dependencies = [
- "base64",
- "byteorder",
- "clap",
- "colored",
- "futures",
- "reqwest",
- "rsa",
- "serde",
- "serde_json",
- "sha1 0.10.6",
- "time",
- "tokio",
- "tracing",
- "tracing-subscriber",
- "zip 9.0.0-pre2",
-]
-
-[[package]]
-name = "neko-pack"
-version = "26.10.0"
-dependencies = [
- "clap",
- "colored",
- "md5",
- "nyanko",
- "serde",
- "serde_json",
- "tracing",
- "tracing-subscriber",
- "zip 8.6.0",
-]
-
-[[package]]
 name = "nom"
 version = "7.1.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1460,21 +1467,6 @@ checksum = "071dfc062690e90b734c0b2273ce72ad0ffa95f0c74596bc250dcfd960262841"
 dependencies = [
  "autocfg",
  "libm",
-]
-
-[[package]]
-name = "nyanko"
-version = "0.4.0"
-source = "git+https://github.com/omochikaeri15/nyanko#05b4f93b82cfa4cd7a4cabf80f6139cb08549ecc"
-dependencies = [
- "aes",
- "block-padding",
- "cbc",
- "cipher",
- "ecb",
- "hex",
- "md5",
- "serde",
 ]
 
 [[package]]
