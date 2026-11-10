@@ -1,28 +1,14 @@
-# Workspace
-keys.json
-config.json
-mod/
-decrypted/
-apk/
-app/
-
-# Quality of Life
-.cl*/
-.st*/
-.re*/
-*.py
-CL*.md
-ST*.md
-RE*.ms
-
-# Other
+# Rust Build Artifacts
 /target/
-.cargo/
 **/*.rs.bk
+.cargo/
 rustfmt.toml
+
+# IDE Settings
 .vscode/
 .idea/
 *.swp
+
+# OS Junk
 .DS_Store
-modules*.md
 Thumbs.db
