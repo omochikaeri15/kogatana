@@ -2,7 +2,6 @@
 /target/
 **/*.rs.bk
 .cargo/
-rustfmt.toml
 
 # IDE Settings
 .vscode/
