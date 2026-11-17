@@ -3,6 +3,10 @@ use std::io::Read;
 use std::path::Path;
 use byteorder::{ByteOrder, LittleEndian};
 
+const LIBRARY_SUFFIX: &str = "/libnative-lib.so";
+const HIGHEST_VERSION: i32 = 99_999_999;
+const SPLIT_FROM: i32 = 1_000_000;
+
 pub struct RegionProfile {
     pub project_name: String,
     pub lang_suffix: String,
@@ -58,7 +62,13 @@ pub fn extract_payload_from_binary(
     if path.extension().is_some_and(|ext| ext == "apk") {
         let file = File::open(path)?;
         let mut archive = zip::ZipArchive::new(file)?;
-        let mut internal_so = archive.by_name("lib/x86_64/libnative-lib.so")?;
+        let library_name = archive
+            .file_names()
+            .filter_map(Result::ok)
+            .find(|name| name.ends_with(LIBRARY_SUFFIX))
+            .map(|name| name.into_owned())
+            .ok_or(format!("ERROR: '{}' holds no game library", path_str))?;
+        let mut internal_so = archive.by_name(&library_name)?;
         internal_so.read_to_end(&mut binary_bytes)?;
     } else {
         let mut file = File::open(path)?;
@@ -88,12 +98,18 @@ pub fn extract_payload_from_binary(
 
     while current_offset + 4 <= binary_bytes.len() {
         let val = LittleEndian::read_i32(&binary_bytes[current_offset..current_offset + 4]);
-        if val == 0 || val == -1 {
+        if !(1..=HIGHEST_VERSION).contains(&val) {
             break;
         }
         versions.push(val);
         current_offset += 4;
     }
+
+    let table_end = versions
+        .windows(2)
+        .position(|pair| pair[0] >= SPLIT_FROM && pair[1] >= SPLIT_FROM && pair[1] + 1 < pair[0])
+        .map_or(versions.len(), |position| position + 1);
+    versions.truncate(table_end);
 
     Ok(versions)
 }
